@@ -1,7 +1,3 @@
-volumes:
-  tuya-convert:
-    external: true
-    
 services:
   tuya-convert_docker:
     # Uncomment one of these. Use :latest if you want the stable build, use :dev if you want the development build
@@ -10,12 +6,11 @@ services:
     container_name: tuya-convert_docker
    
     volumes:
-      - tuya-convert_docker:/config
+      - .:/usr/bin/tuya-convert/backups
     
     network_mode: bridge
 
     environment:
-    # Attention: "host" means your computer where you are running docker on
       - WLAN=wlan0                    # must match the name of your wlan-interface on your host, you may find it with ifconfig 
       - AP=vtrust-flash               # the name of the created AP, can be anything you want
       - GATEWAY=10.42.42.1            # gateway address, leave it here
@@ -25,6 +20,6 @@ services:
     tty: true
     stdin_open: true    
     # Uncomment if you need a container shell when the container won't run 
-    # entrypoint: "/bin/ash"
+    # entrypoint: "/bin/bash"
     
-    restart: unless-stopped
+    restart: no
