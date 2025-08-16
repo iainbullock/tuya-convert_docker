@@ -13,4 +13,4 @@ COPY docker/bin /usr/bin/
 COPY . /usr/bin/tuya-convert
 
 WORKDIR "/usr/bin/tuya-convert"
-CMD [ "/usr/bin/tuya-start.sh" ]
+CMD [ "tuya-start.sh" ]
