@@ -1,25 +1,25 @@
 volumes:
-  innovv-cam-wifi:
+  tuya-convert:
     external: true
     
 services:
-  innovv-cam-wifi:
+  tuya-convert_docker:
     # Uncomment one of these. Use :latest if you want the stable build, use :dev if you want the development build
-    image: iainbullock/innovv-cam-wifi:latest
-    #image: iainbullock/innovv-cam-wifi:dev
-    container_name: innovv-cam-wifid
+    image: iainbullock/tuya-convert_docker:latest
+    #image: iainbullock/tuya-convert_docker:dev
+    container_name: tuya-convert_docker
    
     volumes:
-      - innovv-cam-wifi:/config
+      - tuya-convert_docker:/config
     
-    network_mode: host
-    
-    cap_add:
-      - NET_ADMIN
+    network_mode: bridge
 
     environment:
-      - AP_IFACE=wlan0
-      - UPLINK_IFACE=eth0
+    # Attention: "host" means your computer where you are running docker on
+      - WLAN=wlan0                    # must match the name of your wlan-interface on your host, you may find it with ifconfig 
+      - AP=vtrust-flash               # the name of the created AP, can be anything you want
+      - GATEWAY=10.42.42.1            # gateway address, leave it here
+      - LOCALBACKUPDIR=./data/backups # location on your host where you want to store backuos of the old firmware & logs
       
     # Allow opening of a shell in container
     tty: true
@@ -28,4 +28,3 @@ services:
     # entrypoint: "/bin/ash"
     
     restart: unless-stopped
-    stop_grace_period: 2m
