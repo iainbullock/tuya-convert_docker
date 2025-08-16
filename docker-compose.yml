@@ -1,9 +1,9 @@
 services:
-  tuya-convert_docker:
+  tuya-convert:
     # Uncomment one of these. Use :latest if you want the stable build, use :dev if you want the development build
     image: iainbullock/tuya-convert_docker:latest
     #image: iainbullock/tuya-convert_docker:dev
-    container_name: tuya-convert_docker
+    container_name: tuya-convert
    
     volumes:
       - .:/usr/bin/tuya-convert/backups
