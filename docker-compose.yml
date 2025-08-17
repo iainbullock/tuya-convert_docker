@@ -1,8 +1,10 @@
 services:
   tuya-convert:
-    # Uncomment one of these. Use :latest if you want the stable build, use :dev if you want the development build
-    image: iainbullock/tuya-convert_docker:latest
-    #image: iainbullock/tuya-convert_docker:dev
+    # Uncomment one of these
+    image: iainbullock/tuya-convert_docker:latest # Stable build from Dockerhub
+    #image: iainbullock/tuya-convert_docker:dev # Development build from Dockerhub
+    #image tuya-convert # Locally built image eg from Github
+
     container_name: tuya-convert
    
     volumes:
@@ -14,7 +16,7 @@ services:
       - WLAN=wlan0                    # must match the name of your wlan-interface on your host, you may find it with ifconfig 
       - AP=vtrust-flash               # the name of the created AP, can be anything you want
       - GATEWAY=10.42.42.1            # gateway address, leave it here
-      - LOCALBACKUPDIR=./data/backups # location on your host where you want to store backuos of the old firmware & logs
+      - LOCALBACKUPDIR=./data/backups # location on your host where you want to store backups of the old firmware & logs
       
     # Allow opening of a shell in container
     tty: true
