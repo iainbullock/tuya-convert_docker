@@ -10,17 +10,16 @@ services:
     volumes:
       - .:/usr/bin/tuya-convert/backups
     
-    network_mode: bridge
+    network_mode: host
+    
+    cap_add:
+      - NET_ADMIN
 
     environment:
       - WLAN=wlan0                    # must match the name of your wlan-interface on your host, you may find it with ifconfig 
       - AP=vtrust-flash               # the name of the created AP, can be anything you want
       - GATEWAY=10.42.42.1            # gateway address, leave it here
-      - LOCALBACKUPDIR=./data/backups # location on your host where you want to store backups of the old firmware & logs
       
-    # Allow opening of a shell in container
-    tty: true
-    stdin_open: true    
     # Uncomment if you need a container shell when the container won't run 
     #entrypoint: "/bin/bash"
     

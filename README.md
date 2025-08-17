@@ -8,8 +8,11 @@ For my personal use, limited support is provided. It is fairly self-explanatory 
 ## Run the container
 wget https://raw.githubusercontent.com/iainbullock/tuya-convert_docker/refs/heads/main/docker-compose.yml  
 Edit docker-compose.yml as required for your setup  
-docker compose up  
+docker-compose run --rm tuya-convert:latest  
 
 ## Alternative - build and run the Docker image from Github
 docker build -t tuya-convert:latest https://github.com/iainbullock/tuya-convert_docker.git#main  
-docker run tuya-convert:latest  
+docker-compose run --rm tuya-convert:latest
+
+## Notes
+- Host network mode is required for the container. If the host is using any of the following ports you will have to close the processes which are using them on the host before the container will run - udp 53, udp 67, tcp 80, tcp 443, udp 6666, udp 6667, tcp 1883, tcp
