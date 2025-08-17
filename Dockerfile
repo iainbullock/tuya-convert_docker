@@ -9,7 +9,7 @@ RUN apk update && apk add --no-cache \
 RUN python3 -m pip install --break-system-packages --upgrade paho-mqtt tornado git+https://github.com/drbild/sslpsk.git pycryptodomex
 
 # Copy configs and scripts
-COPY docker/bin/ /usr/bin/
+COPY docker/bin/* /usr/bin/
 COPY . /usr/bin/tuya-convert
 
 WORKDIR "/usr/bin/tuya-convert"
