@@ -3,7 +3,7 @@ services:
     # Uncomment one of these
     image: iainbullock/tuya-convert_docker:latest # Stable build from Dockerhub
     #image: iainbullock/tuya-convert_docker:dev # Development build from Dockerhub
-    #image tuya-convert # Locally built image eg from Github
+    #image: tuya-convert:latest # Locally built image eg from Github
 
     container_name: tuya-convert
    
@@ -22,6 +22,6 @@ services:
     tty: true
     stdin_open: true    
     # Uncomment if you need a container shell when the container won't run 
-    entrypoint: "/bin/bash"
+    #entrypoint: "/bin/bash"
     
     restart: no

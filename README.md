@@ -11,5 +11,5 @@ Edit docker-compose.yml as required for your setup
 docker compose up
 
 ## Alternative - build and run the Docker image from Github
-docker build -t tuya-convert https://github.com/iainbullock/tuya-convert_docker.git#main
-docker run tuya-convert
+docker build -t tuya-convert:latest https://github.com/iainbullock/tuya-convert_docker.git#main
+docker run tuya-convert:latest
