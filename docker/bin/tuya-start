@@ -1,3 +1,3 @@
 #!/bin/bash
-config-tuya.sh
-./start_flash.sh
+. ./config-tuya.sh
+. ./start_flash.sh
