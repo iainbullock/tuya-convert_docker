@@ -15,6 +15,6 @@ docker build -t tuya-convert:latest https://github.com/iainbullock/tuya-convert_
 docker-compose run --rm tuya-convert:latest
 
 ## Notes
-- Host network mode is required for the container. If the host is using any of the following ports you will have to close the processes which are using them on the host before the container will run - udp 53, udp 67, tcp 80, tcp 443, udp 6666, udp 6667, tcp 1883, tcp
+- Host network mode is required for the container. If the host is using any of the following ports you will have to close the processes on the host which are using them before the container will run - udp 53, udp 67, tcp 80, tcp 443, udp 6666, udp 6667, tcp 1883, tcp 8886
 - Run netstat -tulp on host to see which processes have opened which ports
 - On my Ubuntu host the systemd-resolved is using port 53, so I stop that as follows: service systemd-resolved stop
