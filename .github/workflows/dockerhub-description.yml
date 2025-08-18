@@ -17,6 +17,6 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        repository: iainbullock/tuya-convert_docker
+        repository: iainbullock/tuya-convert
         short-description: ${{ github.event.repository.description }}
         enable-url-completion: true
