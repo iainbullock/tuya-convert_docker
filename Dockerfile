@@ -11,7 +11,7 @@ RUN python3 -m pip install --break-system-packages --upgrade paho-mqtt tornado g
 # Copy configs and scripts
 COPY docker/bin/ /usr/bin/tuya-convert
 COPY . /usr/bin/tuya-convert
-RUN chmod +x /usr/bin/tuya-convert/tuya-start /usr/bin/tuya-convert/scripts/old_screen_with_log.sh
+RUN chmod +x /usr/bin/tuya-convert/tuya-start /usr/bin/tuya-convert/scripts/*.sh
 
 WORKDIR "/usr/bin/tuya-convert"
 ENTRYPOINT [ "./tuya-start" ]
