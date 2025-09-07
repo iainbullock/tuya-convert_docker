@@ -1,8 +1,8 @@
 services:
   tuya-convert:
     # Uncomment one of these
-    image: iainbullock/tuya-convert_docker:latest # Stable build from Dockerhub
-    #image: iainbullock/tuya-convert_docker:dev # Development build from Dockerhub
+    image: iainbullock/tuya-convert:latest # Stable build from Dockerhub
+    #image: iainbullock/tuya-convert:dev # Development build from Dockerhub
     #image: tuya-convert:latest # Locally built image eg from Github
 
     container_name: tuya-convert
@@ -19,6 +19,7 @@ services:
       - WLAN=wlan0                    # must match the name of your wlan-interface on your host, you may find it with ifconfig 
       - AP=vtrust-flash               # the name of the created AP, can be anything you want
       - GATEWAY=10.42.42.1            # gateway address, leave it here
+      - TERM=xterm
       
     # Uncomment if you need a container shell when the container won't run 
     #entrypoint: "/bin/bash"
